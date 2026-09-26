@@ -1,4 +1,9 @@
 import os
+import warnings
+
+# 自動過濾 PyTorch 內部因 pynvml 舊版本引發的 FutureWarning 警告，保持日誌乾淨
+warnings.filterwarnings("ignore", category=FutureWarning, message=".*pynvml.*")
+
 # 強制將目前程式所在的資料夾加入系統 PATH，讓 audio-separator 完美抓到 ffmpeg.exe
 os.environ["PATH"] += os.pathsep + os.path.dirname(os.path.abspath(__file__))
 
@@ -29,8 +34,8 @@ class StdoutRedirector:
 class KaraokeApp:
     def __init__(self, root):
         self.root = root
-        self.root.geometry("850x880")
-        self.root.minsize(700, 780)
+        self.root.geometry("850x920")
+        self.root.minsize(700, 820)
 
         # 多國語言字典設定 (繁體中文、简体中文、English、日本語、한국어)
         self.texts = {
@@ -45,6 +50,8 @@ class KaraokeApp:
                 "model_label": "選擇 AI 模型:",
                 "fmt_label": "音訊格式:",
                 "sr_label": "取樣率:",
+                "out_dir_label": "輸出資料夾:",
+                "btn_browse": "瀏覽...",
                 "out_opts": "輸出項目勾選:",
                 "chk_original": "輸出原音 (Original)",
                 "chk_vocals": "輸出人聲 (Vocals)",
@@ -61,7 +68,7 @@ class KaraokeApp:
                 "multi_track": "[{}/{}] 正在進行多軌影音重組...",
                 "video_success": "多軌影片建立成功: {}",
                 "video_fail": "❌ 影片重組失敗:\n{}",
-                "all_done": "\n🎉 全部處理完成！所有勾選的項目已儲存至 downloads 資料夾。\n",
+                "all_done": "\n🎉 全部處理完成！所有勾選的項目已儲存至指定資料夾。\n",
                 "done_title": "完成",
                 "done_msg": "批次處理已全部完成！",
                 "err_title": "錯誤",
@@ -79,6 +86,8 @@ class KaraokeApp:
                 "model_label": "选择 AI 模型:",
                 "fmt_label": "音频格式:",
                 "sr_label": "采样率:",
+                "out_dir_label": "输出文件夹:",
+                "btn_browse": "浏览...",
                 "out_opts": "输出项目勾选:",
                 "chk_original": "输出原音 (Original)",
                 "chk_vocals": "输出人声 (Vocals)",
@@ -95,7 +104,7 @@ class KaraokeApp:
                 "multi_track": "[{}/{}] 正在进行多轨影音重组...",
                 "video_success": "多轨视频创建成功: {}",
                 "video_fail": "❌ 视频重组失败:\n{}",
-                "all_done": "\n🎉 全部处理完成！所有勾选的项目已保存至 downloads 文件夹。\n",
+                "all_done": "\n🎉 全部处理完成！所有勾选的项目已保存至指定文件夹。\n",
                 "done_title": "完成",
                 "done_msg": "批次处理已全部完成！",
                 "err_title": "错误",
@@ -113,6 +122,8 @@ class KaraokeApp:
                 "model_label": "Select AI Model:",
                 "fmt_label": "Audio Format:",
                 "sr_label": "Sample Rate:",
+                "out_dir_label": "Output Folder:",
+                "btn_browse": "Browse...",
                 "out_opts": "Output Options:",
                 "chk_original": "Original Audio",
                 "chk_vocals": "Vocals",
@@ -129,7 +140,7 @@ class KaraokeApp:
                 "multi_track": "[{}/{}] Recombining multi-track video...",
                 "video_success": "Multi-track video created successfully: {}",
                 "video_fail": "❌ Video recombination failed:\n{}",
-                "all_done": "\n🎉 All processing complete! Checked items have been saved to the downloads folder.\n",
+                "all_done": "\n🎉 All processing complete! Checked items have been saved to the output folder.\n",
                 "done_title": "Completed",
                 "done_msg": "Batch processing is fully completed!",
                 "err_title": "Error",
@@ -147,6 +158,8 @@ class KaraokeApp:
                 "model_label": "AI モデル選択:",
                 "fmt_label": "音声フォーマット:",
                 "sr_label": "サンプリングレート:",
+                "out_dir_label": "出力フォルダ:",
+                "btn_browse": "参照...",
                 "out_opts": "出力項目の選択:",
                 "chk_original": "オリジナル音声 (Original)",
                 "chk_vocals": "ボーカル (Vocals)",
@@ -163,7 +176,7 @@ class KaraokeApp:
                 "multi_track": "[{}/{}] マルチトラック動画を再構築中...",
                 "video_success": "マルチトラック動画の作成に成功しました: {}",
                 "video_fail": "❌ 動画の再構築に失敗しました:\n{}",
-                "all_done": "\n🎉 すべての処理が完了しました！選択した項目は downloads フォルダに保存されました。\n",
+                "all_done": "\n🎉 すべての処理が完了しました！選択した項目は指定されたフォルダに保存されました。\n",
                 "done_title": "完了",
                 "done_msg": "一括処理がすべて完了しました！",
                 "err_title": "エラー",
@@ -181,6 +194,8 @@ class KaraokeApp:
                 "model_label": "AI 모델 선택:",
                 "fmt_label": "오디오 형식:",
                 "sr_label": "샘플레이트:",
+                "out_dir_label": "출력 폴더:",
+                "btn_browse": "찾아보기...",
                 "out_opts": "출력 항목 선택:",
                 "chk_original": "원본 오디오 (Original)",
                 "chk_vocals": "보컬 (Vocals)",
@@ -197,7 +212,7 @@ class KaraokeApp:
                 "multi_track": "[{}/{}] 멀티트랙 비디오 재조합 중...",
                 "video_success": "멀티트랙 비디오 생성 성공: {}",
                 "video_fail": "❌ 비디오 재조합 실패:\n{}",
-                "all_done": "\n🎉 모든 처리가 완료되었습니다! 선택한 항목이 downloads 폴더에 저장되었습니다.\n",
+                "all_done": "\n🎉 모든 처리가 완료되었습니다! 선택한 항목이 지정된 폴더에 저장되었습니다.\n",
                 "done_title": "완료",
                 "done_msg": "일괄 처리가 모두 완료되었습니다!",
                 "err_title": "오류",
@@ -209,7 +224,6 @@ class KaraokeApp:
         self.selected_files = []
         self.log_queue = queue.Queue()
 
-        # 僅保留兩個高效模型
         self.model_mapping = {
             "melband_roformer_inst_v2 (For Instrumental)": "melband_roformer_inst_v2.ckpt",
             "model_bs_roformer_ep_317_sdr_12.9755 (For Vocal)": "model_bs_roformer_ep_317_sdr_12.9755.ckpt"
@@ -238,6 +252,8 @@ class KaraokeApp:
         self.lbl_model_sel.config(text=self.get_text("model_label"))
         self.lbl_fmt.config(text=self.get_text("fmt_label"))
         self.lbl_sr.config(text=self.get_text("sr_label"))
+        self.lbl_out_dir.config(text=self.get_text("out_dir_label"))
+        self.btn_browse.config(text=self.get_text("btn_browse"))
         self.lbl_opts.config(text=self.get_text("out_opts"))
         self.chk_original_btn.config(text=self.get_text("chk_original"))
         self.chk_vocals_btn.config(text=self.get_text("chk_vocals"))
@@ -272,7 +288,7 @@ class KaraokeApp:
         self.lbl_file_count = tk.Label(self.frame_top, text=self.get_text("no_file"), font=("Microsoft JhengHei", 10), fg="gray")
         self.lbl_file_count.pack(side="left", padx=10)
 
-        # 2. 設定區塊 (模型選擇 + 格式設定)
+        # 2. 設定區塊 (模型選擇 + 輸出資料夾 + 格式設定)
         self.frame_config = tk.LabelFrame(self.root, text=self.get_text("group2"), font=("Microsoft JhengHei", 10, "bold"), padx=10, pady=10)
         self.frame_config.pack(fill="x", padx=15, pady=5)
 
@@ -286,6 +302,22 @@ class KaraokeApp:
         self.combo_model = ttk.Combobox(model_row, values=list(self.model_mapping.keys()), width=48, state="readonly")
         self.combo_model.set("melband_roformer_inst_v2 (For Instrumental)")
         self.combo_model.pack(side="left", padx=(0, 10))
+
+        # 輸出資料夾設定列
+        dir_row = tk.Frame(self.frame_config)
+        dir_row.pack(fill="x", pady=5)
+
+        self.lbl_out_dir = tk.Label(dir_row, text=self.get_text("out_dir_label"), font=("Microsoft JhengHei", 9, "bold"))
+        self.lbl_out_dir.pack(side="left", padx=(0, 5))
+
+        self.entry_out_dir = tk.Entry(dir_row, width=47, font=("Microsoft JhengHei", 9))
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        default_downloads = os.path.join(base_dir, "downloads")
+        self.entry_out_dir.insert(0, default_downloads)
+        self.entry_out_dir.pack(side="left", padx=(0, 5))
+
+        self.btn_browse = tk.Button(dir_row, text=self.get_text("btn_browse"), font=("Microsoft JhengHei", 9), command=self.select_output_directory, width=8)
+        self.btn_browse.pack(side="left")
 
         # 格式設定列
         sub_frame = tk.Frame(self.frame_config)
@@ -357,6 +389,13 @@ class KaraokeApp:
             self.lbl_file_count.config(text=self.get_text("file_selected").format(len(self.selected_files)), fg="blue")
             self.log(f"Loaded {len(self.selected_files)} files.\n")
 
+    def select_output_directory(self):
+        dir_path = filedialog.askdirectory(title=self.get_text("out_dir_label"))
+        if dir_path:
+            self.entry_out_dir.delete(0, tk.END)
+            self.entry_out_dir.insert(0, dir_path)
+            self.log(f"Output directory changed to: {dir_path}\n")
+
     def log(self, message):
         self.log_text.insert(tk.END, message + "\n")
         self.log_text.see(tk.END)
@@ -383,10 +422,12 @@ class KaraokeApp:
         self.root.after(100, self.process_log_queue)
 
     def open_downloads_folder(self):
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        downloads_dir = os.path.join(base_dir, "downloads")
-        os.makedirs(downloads_dir, exist_ok=True)
-        os.startfile(downloads_dir)
+        output_dir = self.entry_out_dir.get().strip() if hasattr(self, 'entry_out_dir') else ""
+        if not output_dir or not os.path.exists(output_dir):
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            output_dir = os.path.join(base_dir, "downloads")
+        os.makedirs(output_dir, exist_ok=True)
+        os.startfile(output_dir)
 
     def start_thread(self):
         if not self.selected_files:
@@ -409,7 +450,11 @@ class KaraokeApp:
 
             base_dir = os.path.dirname(os.path.abspath(__file__))
             models_dir = os.path.join(base_dir, "models")
-            downloads_dir = os.path.join(base_dir, "downloads")
+            
+            downloads_dir = self.entry_out_dir.get().strip()
+            if not downloads_dir:
+                downloads_dir = os.path.join(base_dir, "downloads")
+
             os.makedirs(models_dir, exist_ok=True)
             os.makedirs(downloads_dir, exist_ok=True)
 
@@ -450,25 +495,28 @@ class KaraokeApp:
                 if need_ai:
                     self.log(f"\n{self.get_text('prep_audio').format(i+1, total, file_name)}\n")
                     temp_wav_path = os.path.join(downloads_dir, f"{base_name}_temp_input.wav")
-                    conv_cmd = ["ffmpeg", "-y", "-i", file_path, "-vn", "-acodec", "pcm_s16le", "-ar", target_sr, temp_wav_path]
-                    subprocess.run(conv_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-                    separator_input = temp_wav_path if os.path.exists(temp_wav_path) else file_path
-
-                    self.log(self.get_text('load_model').format(i+1, total, selected_display_name) + "\n")
                     
-                    separator = Separator(
-                        model_file_dir=models_dir,
-                        output_dir=downloads_dir,
-                        output_format=output_format,
-                        normalization_threshold=0.9
-                    )
-                    separator.load_model(target_model_file)
+                    try:
+                        conv_cmd = ["ffmpeg", "-y", "-i", file_path, "-vn", "-acodec", "pcm_s16le", "-ar", target_sr, temp_wav_path]
+                        subprocess.run(conv_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 
-                    separated_files = separator.separate(separator_input)
+                        separator_input = temp_wav_path if os.path.exists(temp_wav_path) else file_path
 
-                    if os.path.exists(temp_wav_path):
-                        os.remove(temp_wav_path)
+                        self.log(self.get_text('load_model').format(i+1, total, selected_display_name) + "\n")
+                        
+                        separator = Separator(
+                            model_file_dir=models_dir,
+                            output_dir=downloads_dir,
+                            output_format=output_format,
+                            normalization_threshold=0.9
+                        )
+                        separator.load_model(target_model_file)
+
+                        separated_files = separator.separate(separator_input)
+                    finally:
+                        # 確保暫存檔必定會被清除
+                        if os.path.exists(temp_wav_path):
+                            os.remove(temp_wav_path)
 
                     # 重新命名與項目收集（支援 instrumental, other, accompaniment）
                     for f in separated_files:
