@@ -17,8 +17,8 @@
 - `melband_roformer_inst_v2.ckpt` / `config_melbandroformer_inst_v2.yaml` (伴奏分離專用)[cite: 5, 10]
 - `model_bs_roformer_ep_317_sdr_12.9755.ckpt` / `model_bs_roformer_ep_317_sdr_12.9755.yaml` (人聲分離專用)[cite: 5, 10]
 > **模型下載連結**[cite: 5, 10]：
-> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main[cite: 5, 10]
-> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main[cite: 5, 10]
+> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main [cite: 5, 10]
+> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main [cite: 5, 10]
 
 ### 主要功能
 - **高效 AI 模型**：內建 `melband_roformer_inst_v2` 與 `model_bs_roformer_ep_317_sdr_12.9755`[cite: 5, 10]。
@@ -45,8 +45,8 @@
 - `melband_roformer_inst_v2.ckpt` / `config_melbandroformer_inst_v2.yaml` (伴奏分离专用)[cite: 5, 10]
 - `model_bs_roformer_ep_317_sdr_12.9755.ckpt` / `model_bs_roformer_ep_317_sdr_12.9755.yaml` (人声分离专用)[cite: 5, 10]
 > **模型下载链接**[cite: 5, 10]：
-> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main[cite: 5, 10]
-> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main[cite: 5, 10]
+> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main [cite: 5, 10]
+> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main [cite: 5, 10]
 
 ### 主要功能
 - **高效 AI 模型**：内置 `melband_roformer_inst_v2` 与 `model_bs_roformer_ep_317_sdr_12.9755`[cite: 5, 10]。
@@ -73,8 +73,8 @@ Before use, please create a folder named **`models`** in the project root direct
 - `melband_roformer_inst_v2.ckpt` / `config_melbandroformer_inst_v2.yaml` (For accompaniment separation)[cite: 5, 10]
 - `model_bs_roformer_ep_317_sdr_12.9755.ckpt` / `model_bs_roformer_ep_317_sdr_12.9755.yaml` (For vocal separation)[cite: 5, 10]
 > **Model Links**[cite: 5, 10]:
-> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main[cite: 5, 10]
-> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main[cite: 5, 10]
+> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main [cite: 5, 10]
+> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main [cite: 5, 10]
 
 ### Key Features
 - **High-Efficiency AI Models**: Built-in `melband_roformer_inst_v2` and `model_bs_roformer_ep_317_sdr_12.9755`[cite: 5, 10].
@@ -101,8 +101,8 @@ Before use, please create a folder named **`models`** in the project root direct
 - `melband_roformer_inst_v2.ckpt` / `config_melbandroformer_inst_v2.yaml`（伴奏分離専用）[cite: 5, 10]
 - `model_bs_roformer_ep_317_sdr_12.9755.ckpt` / `model_bs_roformer_ep_317_sdr_12.9755.yaml`（ボーカル分離専用）[cite: 5, 10]
 > **モデルダウンロードリンク**[cite: 5, 10]:
-> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main[cite: 5, 10]
-> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main[cite: 5, 10]
+> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main [cite: 5, 10]
+> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main [cite: 5, 10]
 
 ### 主な機能
 - **高効率 AI モデル**: `melband_roformer_inst_v2` と `model_bs_roformer_ep_317_sdr_12.9755` を内蔵[cite: 5, 10]。
@@ -129,8 +129,8 @@ Python과 Tkinter를 기반으로 개발된 **AI 보컬 분리 및 멀티트랙 
 - `melband_roformer_inst_v2.ckpt` / `config_melbandroformer_inst_v2.yaml` (반주 분리 전용)[cite: 5, 10]
 - `model_bs_roformer_ep_317_sdr_12.9755.ckpt` / `model_bs_roformer_ep_317_sdr_12.9755.yaml` (보컬 분리 전용)[cite: 5, 10]
 > **모델 다운로드 링크**[cite: 5, 10]:
-> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main[cite: 5, 10]
-> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main[cite: 5, 10]
+> https://huggingface.co/pcunwa/Mel-Band-Roformer-Inst/tree/main [cite: 5, 10]
+> https://huggingface.co/Eddycrack864/Music-Source-Separation-Training/tree/main [cite: 5, 10]
 
 ### 주요 기능
 - **고효율 AI 모델**: `melband_roformer_inst_v2` 및 `model_bs_roformer_ep_317_sdr_12.9755` 내장[cite: 5, 10].
