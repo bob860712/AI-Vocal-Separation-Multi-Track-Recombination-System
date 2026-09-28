@@ -29,8 +29,9 @@
 
 ### 快速安裝與執行
 1. 確保已安裝 **Python 3.8+**（安裝時請務必勾選 "Add Python to PATH"）。
-2. 下載本專案所有檔案至同一個資料夾。
-3. **一鍵啟動**：直接雙擊 **`launch.bat`**。
+2. 確保電腦系統環境中已安裝 FFmpeg 並已加入系統 PATH，或者將 ffmpeg.exe 放入本專案所有檔案所在的同一個資料夾中。
+3. 下載本專案所有檔案至同一個資料夾。
+4. **一鍵啟動**：直接雙擊 **`launch.bat`**。
    - 首次執行時，系統會自動建立虛擬環境 `venv` 並透過 `requirements.txt` 安裝所有必要套件，完成後將自動啟動程式。
 
 ---
@@ -57,8 +58,9 @@
 
 ### 快速安装与执行
 1. 确保已安装 **Python 3.8+**（安装时请务必勾选 "Add Python to PATH"）。
-2. 下载本项目所有文件至同一个文件夹。
-3. **一键启动**：直接双击 **`launch.bat`**。
+2. 确保电脑系统环境中已安装 FFmpeg 并已加入系统 PATH，或者将 ffmpeg.exe 放入本专案所有文件所在的同一个文件夹中。
+3. 下载本项目所有文件至同一个文件夹。
+4. **一键启动**：直接双击 **`launch.bat`**。
    - 首次运行时，系统会自动创建虚拟环境 `venv` 并通过 `requirements.txt` 安装所有必要插件，完成后将自动启动程序。
 
 ---
@@ -85,8 +87,9 @@ Before use, please create a folder named **`models`** in the project root direct
 
 ### Quick Start & Installation
 1. Ensure **Python 3.8+** is installed (make sure to check "Add Python to PATH" during installation).
-2. Download all project files into the same folder.
-3. **One-Click Launch**: Simply double-click **`launch.bat`**.
+2. Ensure that FFmpeg is installed on your computer system and added to the system PATH, or place ffmpeg.exe in the same folder along with all project files.
+3. Download all project files into the same folder.
+4. **One-Click Launch**: Simply double-click **`launch.bat`**.
    - On the first run, the system will automatically create a `venv` virtual environment and install all required packages via `requirements.txt`, then start the application.
 
 ---
@@ -113,8 +116,9 @@ Before use, please create a folder named **`models`** in the project root direct
 
 ### クイックスタートとインストール
 1. **Python 3.8+** がインストールされていることを確認します（インストール時に「Add Python to PATH」にチェックを入れてください）。
-2. プロジェクトのすべてのファイルを同じフォルダにダウンロードします。
-3. **ワンクリック起動**：**`launch.bat`** をダブルクリックします。
+2. コンピュータシステムに FFmpeg がインストールされ、システム PATH に追加されていること、または ffmpeg.exe を本プロジェクトのすべてのファイルと同じフォルダに配置してください。
+3. プロジェクトのすべてのファイルを同じフォルダにダウンロードします。
+4. **ワンクリック起動**：**`launch.bat`** をダブルクリックします。
    - 初回実行時に、システムが自動的に仮想環境 `venv` を作成し、`requirements.txt` を通じて必要なパッケージをすべてインストールして起動します。
 
 ---
@@ -141,6 +145,7 @@ Python과 Tkinter를 기반으로 개발된 **AI 보컬 분리 및 멀티트랙 
 
 ### 빠른 시작 및 설치
 1. **Python 3.8+**가 설치되어 있는지 확인합니다(설치 시 "Add Python to PATH"를 반드시 체크하세요).
-2. 프로젝트의 모든 파일을 동일한 폴더에 다운로드합니다.
-3. **원클릭 실행**: **`launch.bat`**을 더블클릭합니다.
+2. 컴퓨터 시스템에 FFmpeg가 설치되어 있고 시스템 PATH에 추가되어 있거나, ffmpeg.exe를 프로젝트의 모든 파일과 동일한 폴더에 배치하세요.
+3. 프로젝트의 모든 파일을 동일한 폴더에 다운로드합니다.
+4. **원클릭 실행**: **`launch.bat`**을 더블클릭합니다.
    - 최초 실행 시 시스템이 자동으로 가상 환경 `venv`를 생성하고 `requirements.txt`를 통해 필요한 패키지를 설치한 뒤 프로그램을 실행합니다.
