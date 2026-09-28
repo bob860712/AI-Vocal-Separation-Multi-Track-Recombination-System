@@ -7,22 +7,20 @@
 
 
 ---
-AI_Vocal_Separation_&_Multi-Track_System/
-│
-├── 📁models/
-│   ├── config_melbandroformer_inst_v2.yaml
-│   ├── download_checks.json
-│   ├── melband_roformer_inst_v2.ckpt
-│   ├── model_bs_roformer_ep_317_sdr_12.9755.ckpt
-│   └── model_bs_roformer_ep_317_sdr_12.9755.yaml
-│
-├── app.py
-├── ffmpeg.exe
-├── launch.bat
-├── venv.bat
-├── requirements.txt
-├── screenshot.png
-└── README.md
+```AI_Vocal_Separation_&_Multi-Track_System/```
+```├── models/```
+```│   ├── config_melbandroformer_inst_v2.yaml```
+```│   ├── download_checks.json```
+```│   ├── melband_roformer_inst_v2.ckpt```
+```│   ├── model_bs_roformer_ep_317_sdr_12.9755.ckpt```
+```│   └── model_bs_roformer_ep_317_sdr_12.9755.yaml```
+```├── app.py```
+```├── ffmpeg.exe```
+```├── launch.bat```
+```├── venv.bat```
+```├── requirements.txt```
+```├── screenshot.png```
+```└── README.md```
 ---
 
 ## 繁體中文
